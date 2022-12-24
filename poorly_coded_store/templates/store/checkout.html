@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Amadon</title>
+    <style>
+        body{
+            background-color: cornsilk;
+        }
+        .container{
+            width:1000px;
+            margin: 100px auto;
+            box-shadow: 10px 10px 10px;
+            padding:10px 0px 10px 50px;
+            background-color: white;
+        }
+        .container input[type = 'submit']{
+            box-shadow: 6px 6px 6px black;
+            margin:50px 5px;
+            font-size: 18px;
+            padding:5px 10px;
+            color:white;
+        }
+        .container #no{
+            background-color: green;
+        }
+        .container #yes{
+            background-color: red;
+        }
+        .container table, td{
+            padding:10px;
+            margin-left: 30px ;
+        }
+        .container h1{
+            margin-left: 30px ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h3>Thank you for your business!</h3>
+    <p>We charged your credit card for $ {{price_of_last_item}}</p>
+    <p>You have ordered {{quantity}} items so far and spent $ {{amount}} with Amadon.com!</p>
+    <p><a href="/">Go Back</a></p>
+    </div>
+</body>
+</html>

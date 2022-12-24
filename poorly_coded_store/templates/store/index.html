@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Amadon</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/master.css' %}">
+    <link rel="stylesheet" href="{% static 'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/docs_min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap_min.css' %}">
+    <style>
+        .container{
+            width:1000;
+            margin:100px auto;
+        }
+        .container form{
+            margin-top:50px;
+            margin-left:-130px;
+        }
+        .actions{
+            display: flex;
+            justify-content: space-between;
+        }
+        .container2{
+            margin-left: 270px;
+        }
+        #complete_buy{
+            margin-left: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Amadon Store!</h1><br>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in all_products %}
+            <tr>
+                <form action="/checkout" method="post">
+                    {% csrf_token %}
+                    <td>{{product.description}}</td>
+                    <td>{{product.price}}</td>
+                    <td><select name="quantity">
+                        <option value="1">1</option>              
+                        <option value="2">2</option>              
+                        <option value="3">3</option>              
+                    </select></td>
+                    <td><input type="hidden" name="product_id" value="{{product.id}}">
+                        <input class="btn btn-primary" type="submit" value="Buy"></td>
+                </form>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>
+                    <form action="/Report_buy" method="post">
+                        {% csrf_token %}
+                    <input class="btn btn-primary" type="submit" value="Complete Buy" id="complete_buy">
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.container{
+    width:1000;
+    margin:100px auto;
+}
+.container form{
+    margin-top:50px;
+    margin-left:-130px;
+}
+.actions{
+    display: flex;
+    justify-content: space-around;
+}
